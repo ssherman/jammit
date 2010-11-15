@@ -150,7 +150,7 @@ module Jammit
     # Re-write all enabled asset URLs in a stylesheet with their corresponding
     # Data-URI Base-64 encoded asset contents.
     def with_data_uris(css)
-      css.gsub(EMBED_REPLACER) do |url|
+      css.force_encoding('UTF-8').gsub(EMBED_REPLACER) do |url|
         "url(\"data:#{mime_type($1)};charset=utf-8;base64,#{encoded_contents($1)}\")"
       end
     end
@@ -160,7 +160,7 @@ module Jammit
     # your MHTML will look identical, but won't work.
     def with_mhtml(css, asset_url)
       paths, index = {}, 0
-      css = css.gsub(EMBED_REPLACER) do |url|
+      css = css.force_encoding('UTF-8').gsub(EMBED_REPLACER) do |url|
         i = paths[$1] ||= "#{index += 1}-#{File.basename($1)}"
         "url(mhtml:#{asset_url}!#{i})"
       end
