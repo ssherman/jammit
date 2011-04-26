@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
-  s.name      = 'moxiesoft-jammit'
-  s.version   = '0.5.4.1'         # Keep version in sync with jammit.rb
+  s.name      = 'jammit'
+  s.version   = '0.5.4'         # Keep version in sync with jammit.rb
   s.date      = '2010-09-11'
 
   s.homepage    = "http://documentcloud.github.com/jammit/"
